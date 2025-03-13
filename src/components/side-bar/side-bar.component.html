@@ -1,0 +1,47 @@
+<section class="side-bar">
+  <div class="side-bar__info">
+    <div class="side-bar__level">
+      <button class="side-bar__level__button" (click)="openLevelList()">
+        Níveis
+        <img src="../../assets/arrow.svg" [ngClass]="{ 'img--rotate': showLevels() }" />
+      </button>
+      @if(showLevels()){
+      <div class="side-bar__level__container">
+        @for(number of [0,1,2]; track $index){
+          <button class="button__level" (click)="changeLevel($index + 1)">Nível {{$index + 1}}</button>
+          <hr />
+        }
+      </div>
+      }
+      <p class="side-bar__level__number">Nível 1</p>
+    </div>
+    <div class="side-bar__description">
+      <p>
+        Lorem ipsum dolor sit amet. A consectetur autem qui quisquam velit est
+        voluptates consequatur! 33 quis odit eum iure enim qui consectetur porro
+        ex fugiat impedit nam dolor voluptate quo illo laudantium sed
+        consectetur voluptas. Qui aperiam accusamus 33 dolor quis id iusto quia
+        et quia doloremque non saepe saepe. Et voluptas harum et galisum galisum
+        sit commodi praesentium est corrupti tenetur ea fugiat voluptatem? Est
+        ullam consectetur in impedit unde et error cupiditate ex enim
+        praesentium qui magnam ratione. Sed dicta tenetur aut dolor rerum ab
+        ipsam eaque! Qui eaque fugit et fugit commodi et quibusdam quisquam ut
+        temporibus galisum cum atque temporibus. Et quod illo ea dolores saepe
+        eos repellendus iusto sed ipsa dolor qui soluta debitis? Qui accusamus
+        molestiae qui quia corporis 33 eius dolorum est assumenda magnam et odio
+        ipsam aut omnis perspiciatis. Est expedita minima 33 numquam ipsum et
+        sunt temporibus qui omnis explicabo hic iure quos et quos pariatur. Vel
+        voluptatem blanditiis ut sapiente veritatis qui inventore repudiandae
+        qui dolorem voluptatibus. Aut voluptate sint sit consequatur asperiores
+        et ipsa minima vel cumque laboriosam aut commodi incidunt ut nemo eaque
+        aut iusto nihil. Et veritatis consequatur sit quaerat voluptatem eum
+        soluta tempore et ipsum dolores. Et dolores perspiciatis ad eligendi
+        iure in dolorem blanditiis est atque voluptas aut nisi dolores non
+        debitis sint! Eum dignissimos consectetur in nihil fuga aut voluptas
+        quod aut cupiditate earum! Eos odio blanditiis quo nihil quae sit vero
+        laboriosam sit aliquam omnis sed nulla repudiandae est dolor explicabo.
+      </p>
+    </div>
+  </div>
+  <app-code-editor />
+</section>

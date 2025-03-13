@@ -1,0 +1,9 @@
+<div class="editor">
+  <textarea
+    class="editor__input"
+    [(ngModel)]="editor"
+    (ngModelChange)="changeText()"
+    placeholder="Escreva aqui"
+  ></textarea>
+  <button class="editor__button" (click)="checkAnswer()">Vericar resposta</button>
+</div>

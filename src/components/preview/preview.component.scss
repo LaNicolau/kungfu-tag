@@ -1,0 +1,18 @@
+.preview {
+  height: 100%;
+  padding: 20px 20px 20px 60px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 100%;
+    background-color: #e6e5e5;
+    border-radius: 60px;
+
+    span {
+      color: black;
+    }
+  }
+}

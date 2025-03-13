@@ -1,0 +1,25 @@
+.editor {
+  height: 240px;
+  width: 100%;
+  position: relative;
+
+  &__input {
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    color: black;
+  }
+
+  &__button {
+    position: absolute;
+    width: 120px;
+    height: 45px;
+    bottom: 5px;
+    right: 5px;
+    font-size: 14px;
+    background: #836a45;
+    color: white;
+    border: none;
+    border-radius: 8px;
+  }
+}
