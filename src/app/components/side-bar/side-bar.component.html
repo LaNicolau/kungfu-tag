@@ -1,7 +1,7 @@
 <section class="side-bar">
   <div class="side-bar__info">
     <div class="side-bar__level">
-      <button class="side-bar__level__button" (click)="openLevelList()">
+      <button class="side-bar__level__button" (click)="this.showLevels.set(!this.showLevels())">
         Níveis
         <img src="../../assets/arrow.svg" [ngClass]="{ 'img--rotate': showLevels() }" />
       </button>

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PreviewService } from './preview.service';
+import { SignalService } from './signal.service';
 
-describe('PreviewService', () => {
-  let service: PreviewService;
+describe('SignalService', () => {
+  let service: SignalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PreviewService);
+    service = TestBed.inject(SignalService);
   });
 
   it('should be created', () => {
