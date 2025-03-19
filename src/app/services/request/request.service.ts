@@ -8,6 +8,11 @@ import { levelInterface } from '../../interface/level.interface';
 })
 export class RequestService {
   private http = inject(HttpClient);
+
+  getNumberLevels = (): Observable<number> => {
+    return this.http.get<number>('http://127.0.0.1:8000/challenges/');
+  };
+
   /**
    *
    * @param id número do level

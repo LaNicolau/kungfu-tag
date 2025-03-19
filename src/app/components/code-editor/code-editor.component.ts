@@ -17,26 +17,35 @@ export class CodeEditorComponent {
    * Contém o número do nível
    */
   public idLevel = computed(() => {
-    return this._signal.dataLevel().id;
+    return this._signal.dataLevel().order;
   });
   /**
    * Texto digitado pelo usuário
    */
   public inputText: string = '';
 
-   /**
+  /**
    * Atualiza o texto digitado pelo usuário
    */
 
   changeText() {
     this._signal.typingText.set(this.inputText);
   }
-   /**
+  /**
    * Verifica se a resposta do usuário está correta
+   * REFATORAR
    */
-   checkAnswer() {
+  checkAnswer() {
     this._request.postAnswer(this.idLevel(), this.inputText).subscribe((resp) => {
-      console.log(resp);
-    });
+        if (resp.message.includes('correto')) {
+          if(confirm(resp.message)){
+            this._request.getLevel(this.idLevel() + 1).subscribe((data)=>{
+              this._signal.dataLevel.set(data)
+            })
+          }
+        } else {
+          alert(resp.message);
+        }
+      });
   }
 }

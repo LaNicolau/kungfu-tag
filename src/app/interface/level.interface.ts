@@ -1,5 +1,5 @@
 export interface levelInterface {
-  id: number;
+  order: number;
   description: string;
   panda: string[];
 }
