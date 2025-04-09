@@ -1,25 +1,36 @@
 <section class="side-bar">
   <div class="side-bar__info">
     <div class="side-bar__level">
-      <button class="side-bar__level__button" (click)="this.showLevels.set(!this.showLevels())">
+      <button
+        class="side-bar__level__button"
+        [ngClass]="{ 'side-bar__level__button--levels': showLevels() }"
+        (click)="this.showLevels.set(!this.showLevels())"
+      >
         Níveis
-        <img src="../../assets/arrow.svg" [ngClass]="{ 'img--rotate': showLevels() }" />
+        <img
+          src="../../assets/arrow.svg"
+          [ngClass]="{ 'img--rotate': showLevels() }"
+        />
       </button>
       @if(showLevels()){
       <div class="side-bar__level__container">
         @for(number of numberLevels; track $index){
-          <button class="button__level" (click)="changeLevel($index + 1)">Nível {{$index + 1}}</button>
-          <hr />
+        <button class="button__level" (click)="changeLevel($index + 1)">
+          Nível {{ $index + 1 }}
+        </button>
+        <hr />
         }
       </div>
       }
-      <p class="side-bar__level__number">Nível 1</p>
+      <h1 class="side-bar__level__number">Nível {{ data().order }}</h1>
     </div>
-    <div class="side-bar__description">
-      <p>
-    {{data().description}}
-      </p>
+
+    <div class="teste">
+    <img class="moldura" src="../../../assets/moldura.png"/>
+    <div class="side-bar__description" #description>
+      <p [innerHTML]="data().description | sanitize"></p>
     </div>
   </div>
-  <app-code-editor />
+  </div>
+  <app-code-editor class="editor" />
 </section>

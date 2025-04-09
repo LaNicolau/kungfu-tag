@@ -2,4 +2,8 @@
   <div class="preview__content">
     <span [innerHTML]="text() | sanitize"></span>
   </div>
+  @if(!showCharacter()){
+    <app-character-mini class="main-character--mini" />
+    }
 </section>
+

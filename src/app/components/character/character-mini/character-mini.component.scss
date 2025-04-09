@@ -1,0 +1,84 @@
+$black: #000;
+$white: #fff;
+
+.character--mini {
+  position: relative;
+
+  .character__main {
+    height: 160px;
+  }
+
+  .character__support {
+    position: absolute;
+    bottom: -17px;
+    width: 195px;
+    z-index: -1;
+    right: -20px;
+  }
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -35px;
+  left: -284px;
+  margin: 20px;
+  text-align: center;
+  line-height: 1.3em;
+  background-color: #fff;
+  color: $black;
+  padding: 12px;
+  box-shadow: 0 -4px #fff, 0 -8px $black, 4px 0 #fff, 4px -4px $black,
+    8px 0 $black, 0 4px #fff, 0 8px $black, -4px 0 #fff, -4px 4px $black,
+    -8px 0 $black, -4px -4px $black, 4px 4px $black;
+  width: 260px;
+  min-height: 95px;
+  z-index: 3;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    height: 4px;
+    width: 4px;
+    right: -8px;
+    bottom: 12px;
+    background: white;
+    box-shadow: 4px -4px $white, 4px 0 $white, 8px 0 $white, 0 -8px $white,
+      4px 4px $black, 8px 4px $black, 12px 4px $black, 16px 4px $black,
+      12px 0 $black, 8px -4px $black, 4px -8px $black, 0 -4px $white;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.button {
+  position: absolute;
+  bottom: 83px;
+  right: 148px;
+  cursor: pointer;
+  background: #6dad45;
+  border-radius: 6px;
+  padding: 3px;
+  font-size: 11px;
+  animation: size-change 0.6s infinite alternate linear;
+  z-index: 3;
+
+  &--error {
+    background: #ff3e3e;
+    bottom: 85px;
+    left: -30px;
+  }
+}
+
+@keyframes size-change {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}

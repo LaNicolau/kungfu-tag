@@ -1,4 +1,13 @@
-<div class="container">
+@if(teste()){
+  <app-loading class="teste"/>
+}
+
+@if(showMainCharacter()){
+<div class="blurry-background">
+  <app-character class="character" />
+</div>
+}
+<div class="game-content">
   <app-side-bar />
   <app-preview />
 </div>

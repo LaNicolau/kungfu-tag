@@ -1,9 +1,18 @@
 <div class="editor">
+  <img class="background" src="../../../assets/pergaminho.png"/>
+  <ul>
+    @for(numver of [1,2,3,4,5,6,7,8,9,10,11]; track $index){
+    <li>{{ $index + 1 }}</li>
+    }
+  </ul>
   <textarea
     class="editor__input"
+    id="text"
     [(ngModel)]="inputText"
     (ngModelChange)="changeText()"
     placeholder="Escreva aqui"
   ></textarea>
-  <button class="editor__button" (click)="checkAnswer()">Vericar resposta</button>
+  <button class="editor__button" (click)="checkAnswer()">
+    Verificar resposta
+  </button>
 </div>

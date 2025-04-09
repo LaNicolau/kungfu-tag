@@ -9,17 +9,23 @@ import { levelInterface } from '../../interface/level.interface';
 export class RequestService {
   private http = inject(HttpClient);
 
+  /**
+   * @returns quantidade e níveis existentes
+   */
   getNumberLevels = (): Observable<number> => {
-    return this.http.get<number>('http://127.0.0.1:8000/challenges/');
+    return this.http.get<number>(
+      'https://plangelo.pythonanywhere.com/challenges/'
+    );
   };
-
   /**
    *
    * @param id número do level
    * @returns dados referente aquele level
    */
   getLevel = (id: number = 1): Observable<levelInterface> => {
-    return this.http.get<levelInterface>('http://127.0.0.1:8000/challenges/' + id + '/');
+    return this.http.get<levelInterface>(
+      'https://plangelo.pythonanywhere.com/challenges/' + id + '/'
+    );
   };
   /**
    *
@@ -29,7 +35,7 @@ export class RequestService {
    */
   postAnswer = (id: number, data: any): Observable<any> => {
     return this.http.post<any>(
-      'http://127.0.0.1:8000/challenges/' + id + '/',
+      'https://plangelo.pythonanywhere.com/challenges/' + id + '/',
       data
     );
   };

@@ -1,0 +1,12 @@
+<div class="character--mini" src="../../../assets/file.png">
+  <img class="character__main" src="../../../assets/file.png" />
+  <img class="character__support" src="../../../assets/apoio.png" />
+  @if(showSpeechBubble()){
+  <div class="speech-bubble">
+    <p>{{ speechBubble()?.message }}</p>
+  </div>
+  <button class="button" [ngClass]="{ 'button--error': speechBubble()?.status === 400 }" (click)="close()">
+    {{ speechBubble()?.status === 200 ? "Continuar" : "ok" }}
+  </button>
+  }
+</div>

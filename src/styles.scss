@@ -4,14 +4,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Fira Code", monospace;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+
+  h3{
+    font-size: 18px;
+  }
+
+  p{
+    font-size: 16px;
   }
 
 html, body{
   height: 100%;
-  color: #d1cece
+  color: #000;
 }
 
 body{
-  background: #28382b;
+  background: #5e7049;
+
 }

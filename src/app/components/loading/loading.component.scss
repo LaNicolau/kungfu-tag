@@ -1,0 +1,55 @@
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: burlywood;
+  height: 100%;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  position: relative;
+  gap: 3px;
+}
+
+.bouncing-dots {
+  display: flex;
+  justify-content: space-between;
+  width: 25px;
+  position: absolute;
+  right: -27px;
+  bottom: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  animation: bounce 1.3s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

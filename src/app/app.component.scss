@@ -1,6 +1,26 @@
-.container{
+.game-content {
   display: grid;
-  grid: auto / 0.8fr 1fr;
+  grid: auto / 1fr 1fr;
   height: 100%;
-  max-width: 1440px;
+  gap: 20px;
+  max-width: 1346px;
+}
+
+.blurry-background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1346px;
+  backdrop-filter: blur(1.2px);
+  z-index: 3;
+}
+
+.teste{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
 }
