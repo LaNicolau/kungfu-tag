@@ -1,12 +1,38 @@
-<div class="character--mini" src="../../../assets/file.png">
-  <img class="character__main" src="../../../assets/file.png" />
+<div class="character--mini" src="../../../assets/panda.png">
+  <img class="character__main" src="../../../assets/panda.png" #panda />
   <img class="character__support" src="../../../assets/apoio.png" />
   @if(showSpeechBubble()){
   <div class="speech-bubble">
     <p>{{ speechBubble()?.message }}</p>
+    <button
+      class="button"
+      [ngClass]="
+        speechBubble()?.status === 400 ? 'button error' : 'button correct'
+      "
+      (click)="close()"
+    >
+      {{ speechBubble()?.status === 200 ? "Continuar" : "ok" }}
+    </button>
   </div>
-  <button class="button" [ngClass]="{ 'button--error': speechBubble()?.status === 400 }" (click)="close()">
-    {{ speechBubble()?.status === 200 ? "Continuar" : "ok" }}
-  </button>
+  } @if(showHelpBubble()){
+  <div class="speech-bubble help">
+    <p>Deseja ajuda?</p>
+    <div class="button__side">
+      <button
+        class="button correct"
+        (click)="confirmHelp()"
+      >
+        Sim
+      </button>
+      <button class="button error" (click)="closeHelp()">
+        Não
+      </button>
+    </div>
+  </div>
+  } @if(passTip()){
+  <div class="speech-bubble center">
+    <p>{{ data().tip }}</p>
+    <button class="button correct" (click)="passTip.set(false)">Ok</button>
+  </div>
   }
 </div>

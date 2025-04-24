@@ -1,14 +1,14 @@
-<div class="character" src="../../../assets/file.png">
-  <img class="character__main" src="../../../assets/file.png" />
+<div class="character" src="../../../assets/panda.png">
+  <img class="character__main" src="../../../assets/panda.png" />
   <img class="character__support" src="../../../assets/sombra.png" />
   <div class="speech-bubble">
-    <p>{{ speechData()[index] }}</p>
+    <p class="text">{{ speechData().panda[index] }}</p>
+    @if( speechData().panda.length - 1 !== index && speechData().panda.length > 1){
+      <button class="button-next" (click)="nextText()">
+        <img class="button-next__arrow" src="../../../assets/arrow.svg" />
+      </button>
+      }@else {
+      <button class="button-start" (click)="startGame()">Iniciar</button>
+      }
   </div>
-  @if( speechData().length - 1 !== index && speechData().length > 1){
-  <button class="button-next" (click)="nextText()">
-    <img class="button-next__arrow" src="../../../assets/arrow.svg" />
-  </button>
-  }@else {
-  <button class="button-start" (click)="startGame()">Iniciar</button>
-  }
 </div>

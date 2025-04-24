@@ -1,7 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
-import { SignalService } from '../../services/signal/signal.service';
 import { SanitizePipe } from '../../pipes/sanitize.pipe';
 import { CharacterMiniComponent } from '../character/character-mini/character-mini.component';
+import { CharacterService } from '../../services/character/character.service';
+import { StoreService } from '../../services/store/store.service';
 
 @Component({
   selector: 'app-preview',
@@ -10,14 +11,15 @@ import { CharacterMiniComponent } from '../character/character-mini/character-mi
   styleUrl: './preview.component.scss',
 })
 export class PreviewComponent {
-  private _signal = inject(SignalService);
+  private _store = inject(StoreService);
+  private _character = inject(CharacterService);
 
   /**
    * Boolean resposável por mostrar o personagem
    */
-  showCharacter = computed(() => this._signal.showCharacter());
+  showCharacter = computed(() => this._character.showCharacter());
   /**
    * Texto digitado pelo usuário
    */
-  text = computed(() => this._signal.typingText());
+  text = computed(() => this._store.typingText());
 }

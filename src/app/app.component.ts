@@ -3,11 +3,12 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 
 import { PreviewComponent } from './components/preview/preview.component';
 import { RequestService } from './services/request/request.service';
-import { SignalService } from './services/signal/signal.service';
 import { CharacterComponent } from './components/character/character.component';
 import { NgClass } from '@angular/common';
 import { CharacterMiniComponent } from './components/character/character-mini/character-mini.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CharacterService } from './services/character/character.service';
+import { StoreService } from './services/store/store.service';
 
 @Component({
   selector: 'app-root',
@@ -22,12 +23,13 @@ import { LoadingComponent } from './components/loading/loading.component';
 })
 export class AppComponent {
   private _request = inject(RequestService);
-  private _signal = inject(SignalService);
+  private _store = inject(StoreService);
+      private _character = inject(CharacterService);
 
   /**
    * Boolean responsável por fazer o personagem principal aparecer
    */
-  showMainCharacter = computed(() => this._signal.showCharacter());
+  showMainCharacter = computed(() => this._character.showCharacter());
   /**
    * Faz uma requisição get para buscar os dados do nível
    * Seta essas dados no signal de dataLevel
@@ -36,8 +38,9 @@ export class AppComponent {
   teste = signal<boolean>(true);
 
   ngOnInit() {
+
     this._request.getLevel().subscribe((data) => {
-      this._signal.dataLevel.set(data);
+      this._store.dataLevel.set(data);
       setTimeout(() => {
         this.teste.set(false);
       }, 600);

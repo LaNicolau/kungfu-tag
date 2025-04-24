@@ -1,5 +1,7 @@
-import { Component, computed, effect, inject } from '@angular/core';
-import { SignalService } from '../../services/signal/signal.service';
+import { Component, computed, inject } from '@angular/core';
+import { SoundService } from '../../services/sound/sound.service';
+import { CharacterService } from '../../services/character/character.service';
+import { StoreService } from '../../services/store/store.service';
 
 @Component({
   selector: 'app-character',
@@ -7,22 +9,24 @@ import { SignalService } from '../../services/signal/signal.service';
   styleUrl: './character.component.scss',
 })
 export class CharacterComponent {
-  private _signal = inject(SignalService);
+  private _store = inject(StoreService);
+  private _sound = inject(SoundService);
+  private _character = inject(CharacterService);
 
   /**
-   * Siganl contendo as falas do personagem
+   * Signal contendo as falas do personagem
    */
   speechData = computed(() => {
-    return this._signal.dataLevel().panda;
+    return this._store.dataLevel();
   });
+  /**
+   * Boolean responsável por verificar se já passamos pelo primeiro balão de fala
+   */
+  hasPassed = true;
   /**
    * Index responsável pela posição do array
    */
   index: number = 0;
-
-  constructor(){effect(()=>{
-    console.log(this.speechData()[0])
-  })}
 
   /**
    * Passa para a próxima posição do array
@@ -31,9 +35,12 @@ export class CharacterComponent {
     this.index += 1;
   }
   /**
-   * Fecha o personagem
+   * Fecha o personagem(ARRUMAR)
    */
   startGame() {
-    this._signal.showCharacter.set(false);
+    this._character.showCharacter.set(false);
+    if (this.speechData().order === 1) {
+      this._sound.soundState.set(true);
+    }
   }
 }

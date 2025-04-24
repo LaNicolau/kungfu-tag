@@ -1,17 +1,3 @@
-
-
-  .moldura {
-    position: absolute;
-    top: 50%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-
 .side-bar {
   display: flex;
   flex-direction: column;
@@ -20,16 +6,37 @@
   height: 100%;
   padding: 10px 10px 20px 20px;
   position: relative;
+  max-width: 700px;
+  width: 100%;
 
-  .teste{
+  &__options {
+    display: flex;
+    gap: 10px;
+
+    .icon-sound {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__parchment {
     position: relative;
     padding: 28px 10px 26px 0;
     display: flex;
     justify-content: center;
-  }
+
+    .parchment-frame {
+      position: absolute;
+      top: 50%;
+      left: 48%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
   &__description {
-
     font-weight: 300;
     line-height: 20px;
     overflow-y: scroll;
@@ -45,6 +52,7 @@
       display: none;
     }
   }
+}
 
   &__level {
     display: flex;
@@ -94,12 +102,13 @@
       border-radius: 0 0 8px 8px;
       top: 27px;
       border: solid black 2px;
+      z-index: 99;
 
       .button__level {
         width: 100%;
         height: 30px;
         background: #ffc926;
-        font-weight:400;
+        font-weight: 400;
         color: #000;
         font-size: 14px;
         text-align: center;

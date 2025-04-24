@@ -6,6 +6,7 @@ $white: #fff;
 
   .character__main {
     height: 160px;
+    cursor: pointer;
   }
 
   .character__support {
@@ -18,20 +19,22 @@ $white: #fff;
 }
 
 .speech-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   position: absolute;
-  top: -35px;
+  bottom: 60px;
   left: -284px;
   margin: 20px;
   text-align: center;
   line-height: 1.3em;
   background-color: #fff;
   color: $black;
-  padding: 12px;
+  padding-top: 12px;
   box-shadow: 0 -4px #fff, 0 -8px $black, 4px 0 #fff, 4px -4px $black,
     8px 0 $black, 0 4px #fff, 0 8px $black, -4px 0 #fff, -4px 4px $black,
     -8px 0 $black, -4px -4px $black, 4px 4px $black;
   width: 260px;
-  min-height: 95px;
   z-index: 3;
 
   &::after {
@@ -50,26 +53,37 @@ $white: #fff;
   }
 
   p {
-    font-size: 14px;
+    padding: 0 12px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  &.help{
+    align-items: center;
   }
 }
 
 .button {
-  position: absolute;
-  bottom: 83px;
-  right: 148px;
-  cursor: pointer;
-  background: #6dad45;
+  min-width: 27px;
   border-radius: 6px;
   padding: 3px;
   font-size: 11px;
+  cursor: pointer;
   animation: size-change 0.6s infinite alternate linear;
   z-index: 3;
 
-  &--error {
+  &__side {
+    display: flex;
+    gap: 5px;
+  }
+
+  &.correct {
+    background: #6dad45;
+  }
+
+  &.error {
     background: #ff3e3e;
-    bottom: 85px;
-    left: -30px;
   }
 }
 

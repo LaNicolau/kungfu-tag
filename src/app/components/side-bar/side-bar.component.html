@@ -1,17 +1,29 @@
 <section class="side-bar">
   <div class="side-bar__info">
     <div class="side-bar__level">
-      <button
-        class="side-bar__level__button"
-        [ngClass]="{ 'side-bar__level__button--levels': showLevels() }"
-        (click)="this.showLevels.set(!this.showLevels())"
-      >
-        Níveis
-        <img
-          src="../../assets/arrow.svg"
-          [ngClass]="{ 'img--rotate': showLevels() }"
-        />
-      </button>
+      <div class="side-bar__options">
+        <button
+          class="side-bar__level__button"
+          [ngClass]="{ 'side-bar__level__button--levels': showLevels() }"
+          (click)="showLevels.set(!showLevels())"
+        >
+          Níveis
+          <img
+            class="icon-arrow"
+            src="../../assets/arrow.svg"
+            [ngClass]="{ 'img--rotate': showLevels() }"
+          />
+        </button>
+        <button class="icon-sound" (click)="listenSound()">
+          <img
+            [src]="
+              soundState()
+                ? '../../../assets/volume_up.svg'
+                : '../../../assets/volume_off.svg'
+            "
+          />
+        </button>
+      </div>
       @if(showLevels()){
       <div class="side-bar__level__container">
         @for(number of numberLevels; track $index){
@@ -25,12 +37,12 @@
       <h1 class="side-bar__level__number">Nível {{ data().order }}</h1>
     </div>
 
-    <div class="teste">
-    <img class="moldura" src="../../../assets/moldura.png"/>
-    <div class="side-bar__description" #description>
-      <p [innerHTML]="data().description | sanitize"></p>
+    <div class="side-bar__parchment">
+      <img class="parchment-frame" src="../../../assets/moldura.png" />
+      <div class="side-bar__parchment__description" #description>
+        <p [innerHTML]="data().description | sanitize"></p>
+      </div>
     </div>
-  </div>
   </div>
   <app-code-editor class="editor" />
 </section>
