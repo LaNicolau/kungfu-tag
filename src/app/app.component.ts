@@ -24,7 +24,7 @@ import { StoreService } from './services/store/store.service';
 export class AppComponent {
   private _request = inject(RequestService);
   private _store = inject(StoreService);
-      private _character = inject(CharacterService);
+  private _character = inject(CharacterService);
 
   /**
    * Boolean responsável por fazer o personagem principal aparecer
@@ -34,15 +34,14 @@ export class AppComponent {
    * Faz uma requisição get para buscar os dados do nível
    * Seta essas dados no signal de dataLevel
    */
-
-  teste = signal<boolean>(true);
+  ShowLoading = signal<boolean>(true);
 
   ngOnInit() {
 
     this._request.getLevel().subscribe((data) => {
       this._store.dataLevel.set(data);
       setTimeout(() => {
-        this.teste.set(false);
+        this.ShowLoading.set(false);
       }, 600);
     });
   }

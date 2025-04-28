@@ -59,7 +59,7 @@ $white: #fff;
     width: 100%;
   }
 
-  &.help{
+  &.help {
     align-items: center;
   }
 }
@@ -95,4 +95,30 @@ $white: #fff;
   to {
     transform: scale(1.1);
   }
+}
+
+@media (max-width: 768px) {
+  .character--mini {
+    position: relative;
+
+    .character__main {
+      height: 130px;
+    }
+
+    .character__support {
+      display: none;
+    }
+  }
+
+  .speech-bubble{
+    width: 200px;
+    bottom: 48px;
+    left: -229px;
+    line-height: 18px;
+  }
+
+
+.button {
+  font-size: 10px;
+}
 }

@@ -32,8 +32,22 @@
   width: 200px;
 }
 
-@media (max-width: 950px) {
-  .preview__content {
-    min-width: initial;
+@media (max-width: 768px) {
+  .preview {
+    max-width: 600px;
+    position: relative;
+    padding: 0 10px 10px 10px;
+
+    &__content{
+      font-size: 14px;
+      min-height: 280px;
+      border-radius: 0px;
+    }
+  }
+
+  .main-character--mini{
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }

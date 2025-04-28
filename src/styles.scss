@@ -28,3 +28,17 @@ body{
   background: #5e7049;
 
 }
+
+@media(max-width: 768px){
+  h2{
+    font-size: 19px;
+  }
+
+  h3{
+    font-size: 17px;
+  }
+
+  p{
+    font-size: 15px;
+  }
+}

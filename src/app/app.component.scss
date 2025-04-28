@@ -3,6 +3,7 @@
   grid: auto / 1fr 1fr;
   height: 100%;
   gap: 20px;
+  padding-bottom: 10px;
 }
 
 .blurry-background {
@@ -16,14 +17,22 @@
   z-index: 3;
 }
 
-.teste{
-  position: absolute;
+.loading {
+  position: fixed;
   height: 100%;
   width: 100%;
   z-index: 999;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
 }

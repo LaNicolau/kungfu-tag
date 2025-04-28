@@ -52,3 +52,24 @@ ul {
   color: black;
   border-right: 2px solid black;
 }
+
+@media (max-width: 768px) {
+  .editor {
+    height: 200px;
+
+    &__input {
+      font-size: 13px;
+      line-height: 15.2px;
+    }
+
+    &__button {
+      width: 105px;
+      font-size: 13px;
+    }
+  }
+
+  ul {
+    font-size: 13px;
+    line-height: 15.2px;
+  }
+}

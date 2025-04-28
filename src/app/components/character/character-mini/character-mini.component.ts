@@ -64,7 +64,9 @@ export class CharacterMiniComponent {
    */
   ngOnInit() {
     setTimeout(() => {
-      this.showHelpBubble.set(true);
+      if (!this.showSpeechBubble()) {
+        this.showHelpBubble.set(true);
+      }
     }, 120000);
   }
   /**

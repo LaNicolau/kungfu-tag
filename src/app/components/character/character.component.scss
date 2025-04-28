@@ -61,7 +61,6 @@ $white: #fff;
     -8px 0 $black, -4px -4px $black, 4px 4px $black;
   width: 300px;
 
-
   &::after {
     content: "";
     display: block;
@@ -77,7 +76,7 @@ $white: #fff;
       -12px 0 $black, -8px -4px $black, -4px -8px $black, 0 -4px $white;
   }
 
-  .text{
+  .text {
     padding: 12px 12px 0;
   }
 }
@@ -99,5 +98,37 @@ $white: #fff;
 
   to {
     transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .character {
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    &__main {
+      height: 165px;
+    }
+
+    &__support {
+      position: absolute;
+      bottom: -71px;
+      width: 219px;
+      z-index: -1;
+      left: 75px;
+    }
+  }
+  .speech-bubble {
+    bottom: 152px;
+    left: 0;
+    &::after {
+      height: 4px;
+      width: 4px;
+      bottom: -8px;
+      left: 81px;
+      box-shadow: 0 4px #000, 0 8px #000, 0 12px #000, 0 16px #000, -4px 12px #000,
+        -8px 8px #000, -12px 4px #000, -4px 4px #fff, -8px 4px #fff, -4px 8px #fff, -4px 0 #fff,
+        -8px 0 #fff, -12px 0 #fff;
+    }
   }
 }
