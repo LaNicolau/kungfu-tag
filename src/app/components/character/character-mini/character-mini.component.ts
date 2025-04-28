@@ -56,6 +56,7 @@ export class CharacterMiniComponent {
     effect(() => {
       if (this.speechBubble()) {
         this.showSpeechBubble.set(true);
+        this.closeHelp();
       }
     });
   }
