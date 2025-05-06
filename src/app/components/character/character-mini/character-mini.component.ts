@@ -33,6 +33,10 @@ export class CharacterMiniComponent {
    */
   data = computed(() => this._store.dataLevel());
   /**
+   *Signal contendo um boolean informando se o jogo terminou
+   */
+  endGame = computed(() => this._store.endGame());
+  /**
    * Controla a exibição do balão de fala com o feedback da resposta.
    */
   showSpeechBubble = signal<boolean>(false);
@@ -44,6 +48,10 @@ export class CharacterMiniComponent {
    * Controla se a dica está sendo exibida.
    */
   passTip = signal<boolean>(false);
+  /**
+   * Número total de níveis existentes.
+   */
+  totalNumberLevels!: number;
   /**
    * Referência ao elemento HTML do personagem principal (panda).
    */
@@ -64,6 +72,10 @@ export class CharacterMiniComponent {
    * Aguarda 2 minutos e mostra a sugestão de ajuda automaticamente.
    */
   ngOnInit() {
+    this._request.getNumberLevels().subscribe((number) => {
+      this.totalNumberLevels = number.length;
+    });
+
     setTimeout(() => {
       if (!this.showSpeechBubble()) {
         this.showHelpBubble.set(true);
@@ -101,12 +113,22 @@ export class CharacterMiniComponent {
   close() {
     const feedback = this.speechBubble();
     if (feedback?.status === 200) {
-      this._request.getLevel(this.data().order + 1).subscribe((newLevel) => {
-        this._store.dataLevel.set(newLevel);
-        this._character.showCharacter.set(true);
-      });
+      if (this.data().order === this.totalNumberLevels) {
+        this._store.endGame.set(true);
+      } else {
+        this._request.getLevel(this.data().order + 1).subscribe((newLevel) => {
+          this._store.dataLevel.set(newLevel);
+          this._character.showCharacter.set(true);
+        });
+      }
     }
     this.showSpeechBubble.set(false);
     this._character.characterFeedback.set(null);
+  }
+  /**
+   * Fecha o balão final do jogo
+   */
+  closeEndGame() {
+    this._store.endGame.set(false);
   }
 }

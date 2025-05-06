@@ -18,21 +18,26 @@
   <div class="speech-bubble help">
     <p>Deseja ajuda?</p>
     <div class="button__side">
-      <button
-        class="button correct"
-        (click)="confirmHelp()"
-      >
-        Sim
-      </button>
-      <button class="button error" (click)="closeHelp()">
-        Não
-      </button>
+      <button class="button correct" (click)="confirmHelp()">Sim</button>
+      <button class="button error" (click)="closeHelp()">Não</button>
     </div>
   </div>
   } @if(passTip()){
   <div class="speech-bubble center">
     <p>{{ data().tip }}</p>
     <button class="button correct" (click)="passTip.set(false)">Ok</button>
+  </div>
+  } @if(endGame()){
+  <div class="speech-bubble center">
+    <p>
+      Você percorreu todos os caminhos, dominou cada tag e enfrentou todos os
+      desafios com coragem e sabedoria. Agora, jovem mestre do HTML, o templo
+      reconhece o seu valor. Que sua jornada no mundo da web seja clara, bem
+      estruturada... e sem bugs. Vá, e construa páginas dignas de um verdadeiro
+      guerreiro do código!
+    </p>
+
+    <button class="button button correct" (click)="closeEndGame()">Fechar</button>
   </div>
   }
 </div>

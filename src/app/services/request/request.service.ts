@@ -12,8 +12,8 @@ export class RequestService {
   /**
    * @returns quantidade e níveis existentes
    */
-  getNumberLevels = (): Observable<number> => {
-    return this.http.get<number>(
+  getNumberLevels = (): Observable<Array<levelInterface>> => {
+    return this.http.get<Array<levelInterface>>(
       'https://plangelo.pythonanywhere.com/challenges/'
     );
   };
