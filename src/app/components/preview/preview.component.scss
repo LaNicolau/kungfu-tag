@@ -21,6 +21,7 @@
     border: 2px solid #323030;
     background-color: #d4d8d9;
     border-radius: 60px;
+    padding: 0 10px;
 
     span {
       color: black;
@@ -42,6 +43,8 @@
       font-size: 14px;
       min-height: 280px;
       border-radius: 0px;
+      align-items: start;
+      padding: 10px 10px;
     }
   }
 

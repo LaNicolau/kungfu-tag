@@ -80,6 +80,7 @@ export class SideBarComponent {
       this._store.dataLevel.set(data);
       this.showLevels.set(false);
       this._character.showCharacter.set(true);
+      this._store.endGame.set(false);
     });
   }
 }
