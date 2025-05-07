@@ -87,7 +87,7 @@ export class CharacterMiniComponent {
       if (!this.showSpeechBubble()) {
         this.showHelpBubble.set(true);
       }
-    }, 120000);
+    }, 90000);
   }
   /**
    * Executado após o componente ser renderizado.
