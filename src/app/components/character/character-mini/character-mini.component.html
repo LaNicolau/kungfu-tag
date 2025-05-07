@@ -9,7 +9,7 @@
       [ngClass]="
         speechBubble()?.status === 400 ? 'button error' : 'button correct'
       "
-      (click)="close()"
+      (click)="closeFeedback()"
     >
       {{ speechBubble()?.status === 200 ? "Continuar" : "ok" }}
     </button>

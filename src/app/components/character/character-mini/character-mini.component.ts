@@ -29,13 +29,17 @@ export class CharacterMiniComponent {
    */
   speechBubble = computed(() => this._character.characterFeedback());
   /**
+   * Texto contendo o feedback da resposta do usuário
+   */
+  closeSpeechBubble = computed(() => this._character.closeSpeechBubble());
+  /**
    * Nível do jogo
    */
   data = computed(() => this._store.dataLevel());
   /**
    *Signal contendo um boolean informando se o jogo terminou
    */
-  endGame = computed(() => this._store.endGame());
+  endGame = signal<boolean>(false);
   /**
    * Controla a exibição do balão de fala com o feedback da resposta.
    */
@@ -65,6 +69,9 @@ export class CharacterMiniComponent {
       if (this.speechBubble()) {
         this.showSpeechBubble.set(true);
         this.closeHelp();
+      }
+      if(this.closeSpeechBubble()){
+       this.close();
       }
     });
   }
@@ -110,11 +117,11 @@ export class CharacterMiniComponent {
   /**
    * Fecha o balão de fala e avança de nível, se aplicável
    */
-  close() {
+  closeFeedback() {
     const feedback = this.speechBubble();
     if (feedback?.status === 200) {
       if (this.data().order === this.totalNumberLevels) {
-        this._store.endGame.set(true);
+        this.endGame.set(true);
       } else {
         this._request.getLevel(this.data().order + 1).subscribe((newLevel) => {
           this._store.dataLevel.set(newLevel);
@@ -129,6 +136,17 @@ export class CharacterMiniComponent {
    * Fecha o balão final do jogo
    */
   closeEndGame() {
-    this._store.endGame.set(false);
+    this.endGame.set(false);
+  }
+ /**
+   * Fecha todos os balões
+   */
+  close(){
+    this.showSpeechBubble.set(false);
+    this._character.characterFeedback.set(null);
+    this.showHelpBubble.set(false);
+    this.passTip.set(false);
+    this.endGame.set(false);
+    this._character.closeSpeechBubble.set(false)
   }
 }

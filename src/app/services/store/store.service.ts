@@ -18,8 +18,4 @@ export class StoreService {
    *Signal contendo o texto digitado pelo usuário do editor de código
    */
   typingText = signal<string>('');
-  /**
-   *Signal contendo um boolean informando se o jogo terminou
-   */
-  endGame = signal<boolean>(false);
 }
