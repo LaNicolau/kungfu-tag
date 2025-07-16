@@ -57,6 +57,10 @@ export class CharacterMiniComponent {
    */
   totalNumberLevels!: number;
   /**
+   * Número total de erros
+   */
+  erros = signal<number>(0);
+  /**
    * Referência ao elemento HTML do personagem principal (panda).
    */
   @ViewChild('panda') pandaRef!: ElementRef;
@@ -70,8 +74,8 @@ export class CharacterMiniComponent {
         this.showSpeechBubble.set(true);
         this.closeHelp();
       }
-      if(this.closeSpeechBubble()){
-       this.close();
+      if (this.closeSpeechBubble()) {
+        this.close();
       }
     });
   }
@@ -128,6 +132,11 @@ export class CharacterMiniComponent {
           this._character.showCharacter.set(true);
         });
       }
+    } else {
+      this.erros.set(this.erros() + 1);
+      if(this.erros() === 2){
+          this.showHelpBubble.set(true);
+      }
     }
     this.showSpeechBubble.set(false);
     this._character.characterFeedback.set(null);
@@ -138,15 +147,15 @@ export class CharacterMiniComponent {
   closeEndGame() {
     this.endGame.set(false);
   }
- /**
+  /**
    * Fecha todos os balões
    */
-  close(){
+  close() {
     this.showSpeechBubble.set(false);
     this._character.characterFeedback.set(null);
     this.showHelpBubble.set(false);
     this.passTip.set(false);
     this.endGame.set(false);
-    this._character.closeSpeechBubble.set(false)
+    this._character.closeSpeechBubble.set(false);
   }
 }

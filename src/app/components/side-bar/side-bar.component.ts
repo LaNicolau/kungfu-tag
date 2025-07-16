@@ -46,6 +46,7 @@ export class SideBarComponent {
    */
   numberLevels: any = 0;
 
+  @ViewChild('description') description!: ElementRef;
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
     const eventName = (event.target as HTMLElement).className;
@@ -66,6 +67,9 @@ export class SideBarComponent {
     });
   }
 
+  ngAfterViewInit() {
+    this.description.nativeElement.scrollTop = 0;
+  }
   /**
    * Ao clicar no ícone do som, muda o estado dele
    */
