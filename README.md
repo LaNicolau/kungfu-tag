@@ -1,59 +1,102 @@
-# CodeLayout
+# 🐼 KungFu Tag – Jogo Educativo para Aprendizado de HTML
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+O **KungFu Tag** é um jogo educativo desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de tornar o aprendizado de HTML mais acessível, interativo e motivador.
+A proposta parte da ideia de que jogos de programação podem estimular o interesse dos estudantes ao oferecer uma abordagem mais dinâmica e envolvente do que métodos tradicionais, como leitura de livros ou aulas expositivas.
+O projeto foi fundamentado nos conceitos estudados na disciplina de Interação Humano-Computador (IHC), abordando temas como layout, prototipagem e construção prática de interfaces utilizando HTML.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🎯 Objetivo
 
-```bash
-ng serve
-```
+Propor um jogo para o ensino de HTML de forma divertida e intuitiva, estimulando:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- 🧠 Raciocínio lógico  
+- 🎨 Criatividade  
+- 💻 Prática direta com código  
+- 📚 Aprendizado ativo  
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🌐 Acesse o Projeto
 
-```bash
-ng generate component component-name
-```
+🔗 Deploy: https://kungfu-tag.vercel.app/
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🚀 Tecnologias Utilizadas
 
-## Building
+- Angular 19  
+- TypeScript  
+- Angular Signals (gerenciamento de estado reativo)
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🏗️ Arquitetura e Organização
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+O projeto foi estruturado com foco em:
 
-## Running unit tests
+- Componentização bem definida  
+- Separação de responsabilidades  
+- Uso de **Signals** para controle reativo de estado  
+- Organização modular para facilitar manutenção e escalabilidade  
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## 🎮 Funcionalidades
 
-## Running end-to-end tests
+### 📖 Introdução ao Nível
+- Exibição de balões de fala do personagem
+- Navegação entre falas
+- Botão para iniciar o desafio
 
-For end-to-end (e2e) testing, run:
+### 🧩 Sistema de Desafios
+- Ambiente de escrita de código HTML
+- Preview em tempo real
+- Explicações e curiosidades sobre o conteúdo
 
-```bash
-ng e2e
-```
+### ✍️ Editor de Código
+- Campo interativo para escrita do código HTML
+- Interação direta do jogador com o desafio proposto
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 💡 Sistema de Dicas
+- Dica automática após 1min30s
+- Possibilidade de solicitar ajuda clicando no personagem
+- Opção de aceitar ou recusar a ajuda
 
-## Additional Resources
+### ✅ Verificação de Código
+- Comparação do código escrito com a solução esperada
+- Validação automática
+- Avanço de fase em caso de acerto
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 💬 Sistema de Feedback
+- Feedback positivo ao acertar
+- Feedback explicativo ao errar
+- Controle de progressão entre níveis
+
+### 🗂️ Navegação entre Fases
+- Menu de seleção de níveis
+- Possibilidade de trocar de fase manualmente
+
+---
+
+## 🔄 Fluxo Geral do Jogo
+
+1. Introdução do nível pelo personagem
+2. Início do desafio
+3. Escrita do código pelo jogador
+4. Verificação automática
+5. Feedback
+6. Avanço para o próximo nível
+
+Caso o jogador esteja no último nível, o sistema exibe uma mensagem final de conclusão.
+
+---
+
+## 🔮 Possíveis Melhorias Futuras
+
+- Implementação de sistema de pontuação  
+- Registro de progresso do jogador  
+- Ranking de jogadores  
+- Sistema de autenticação  
+- Expansão para CSS e JavaScript  
+- Testes automatizados  
