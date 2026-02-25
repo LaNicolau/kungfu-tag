@@ -3,6 +3,7 @@
 O **KungFu Tag** é um jogo educativo desenvolvido como Trabalho de Conclusão de Curso (TCC) com o objetivo de tornar o aprendizado de HTML mais acessível, interativo e motivador.
 
 A proposta parte da ideia de que jogos de programação podem estimular o interesse dos estudantes ao oferecer uma abordagem mais dinâmica e envolvente do que métodos tradicionais, como leitura de livros ou aulas expositivas.
+
 O projeto foi fundamentado nos conceitos estudados na disciplina de Interação Humano-Computador (IHC), abordando temas como layout, prototipagem e construção prática de interfaces utilizando HTML.
 
 ---
